@@ -4,10 +4,10 @@ Versi browser-only. Seluruh tampilan, editor, proyek lokal, checklist, import/ex
 
 ## Publikasi di GitHub Pages
 
-1. Ekstrak paket dan upload **isi** folder ini (bukan folder pembungkus) ke repository `liklike216/utuattestinggenerator` pada branch `main`.
+1. Ekstrak paket dan upload **isi** folder ini (bukan folder pembungkus) ke repository `uatscenario/uatscenario.github.io` pada branch `main`.
 2. Pastikan `index.html`, `app.js`, `core.mjs`, `excel.mjs`, `demo.json`, `style.css`, `icon.png`, dan `.nojekyll` berada di root repository.
 3. Buka **Settings → Pages → Build and deployment → Deploy from a branch**. Pilih **main** dan **/(root)**, lalu Save.
-4. Tunggu deployment GitHub selesai. Alamat yang dituju: `https://liklike216.github.io/utuattestinggenerator/`.
+4. Tunggu deployment GitHub selesai. Alamat yang dituju: `https://uatscenario.github.io/`.
 
 Alamat ini merupakan target publikasi; paket lokal tidak membuktikan situs sudah live. Semua URL asset memakai path relatif sehingga dapat berjalan pada subfolder repository.
 
@@ -38,7 +38,7 @@ Key disimpan dalam variabel memori tab saja. Tidak disimpan di localStorage, ses
 
 Browser tetap memiliki akses ke key selama tab aktif. Gunakan perangkat pribadi dan hindari ekstensi yang tidak dipercaya. Ini tidak memberi perlindungan secret setara backend. UI mewajibkan persetujuan tujuan penyedia sebelum menyimpan key sesi.
 
-Penyedia harus mengizinkan CORS untuk origin `https://liklike216.github.io`, termasuk header Authorization/Content-Type. Jika penyedia memblokir akses browser, mode AI langsung tidak dapat berjalan hanya dengan GitHub Pages; tidak ada proxy publik/bypass otomatis. Error jaringan/CORS ditampilkan tanpa membocorkan key. Mode demo/checklist, editor dan Excel tetap dapat digunakan.
+Penyedia harus mengizinkan CORS untuk origin `https://uatscenario.github.io`, termasuk header Authorization/Content-Type. Jika penyedia memblokir akses browser, mode AI langsung tidak dapat berjalan hanya dengan GitHub Pages; tidak ada proxy publik/bypass otomatis. Error jaringan/CORS ditampilkan tanpa membocorkan key. Mode demo/checklist, editor dan Excel tetap dapat digunakan.
 
 Responses memakai `text.format` JSON Schema dan `store: false`. Chat Completions memakai `response_format` JSON Schema. Respons divalidasi sebelum mengganti hasil. Tidak ada retry otomatis yang diam-diam menambah biaya. Tombol Batalkan menghentikan fetch lokal; provider mungkin sudah memproses permintaan.
 
@@ -61,3 +61,7 @@ Seluruh kode dan contoh demo yang diupload ke Pages bersifat publik. Proyek prib
 Status review dikembalikan ke Draft ketika konteks berubah. Mapping dihapus ketika requirement diedit agar referensi lama tidak dianggap valid. Status Passed hanya diisi setelah testing oleh pengguna.
 
 Untuk preview pengembangan saja, jalankan static HTTP server pada folder ini. Server tersebut tidak dibutuhkan setelah situs dipublikasikan di GitHub Pages.
+
+## Pindah dari alamat lama
+
+Alamat utama: https://uatscenario.github.io/ . Project yang tersimpan pada https://liklike216.github.io/utuattestinggenerator/ tetap berada pada browser untuk origin lama. Buka alamat lama, unduh Backup JSON, lalu Import JSON di alamat baru. API key perlu dimasukkan kembali; bila penyedia memakai allowlist CORS, izinkan origin https://uatscenario.github.io.
